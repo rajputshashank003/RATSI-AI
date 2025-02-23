@@ -1,8 +1,9 @@
 import { Routes, Route } from 'react-router-dom'
 import { topics } from './Topics'
-import Chat from './Chat'
-import AllTutors from './AllTutors'
-import LandingPage from './LandingPage/LandingPage'
+import Chat from '../pages/Chat'
+import AllTutors from '../pages/AllTutors'
+import LandingPage from '../pages/LandingPage'
+import GoogleSignIn from './GoogleSignIn'
 
 const AppRoutes = () => {
   return (
@@ -14,6 +15,7 @@ const AppRoutes = () => {
                 <Route path={"/" + topic} key={ind} element={< Chat topic={topic} />} />
             ))
         }
+        <Route path="/signin" element={<GoogleSignIn/>}/>
     </Routes>
   )
 }

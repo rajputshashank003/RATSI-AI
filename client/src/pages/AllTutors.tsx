@@ -1,7 +1,15 @@
-import { topics } from "./Topics.ts";
-import Tutor from "./Tutor";
+import { useEffect } from "react";
+import { topics } from "../components/Topics.ts";
+import Tutor from "../components/Tutor.tsx";
+import { useVerifyMe } from "../hooks/useVerifyMe.tsx";
 
 const AllTutors = () => {
+  const { verifyUser } = useVerifyMe();
+
+  useEffect(() => {
+    verifyUser();
+  }, []);
+  
   return (
     <div className="relative w-screen ">
       <div className="w-full mt-[3rem] flex justify-center items-center text-4xl p-6 font-bold text-slate-300">

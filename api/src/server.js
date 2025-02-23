@@ -23,5 +23,3 @@ app.use("/tutor", tutorRoutes);
 app.listen(8000, () => {
     console.log("Server running on 8000");
 });
-
-export default app;

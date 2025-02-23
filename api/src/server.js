@@ -17,8 +17,8 @@ app.get("/" , (req, res) => {
     })
 })
 
-app.use("/users" , userRoutes);
-app.use("/tutor", tutorRoutes);
+// app.use("/users" , userRoutes);
+// app.use("/tutor", tutorRoutes);
 
 app.listen(8000, () => {
     console.log("Server running on 8000");

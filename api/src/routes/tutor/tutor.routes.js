@@ -1,11 +1,11 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import express from "express";
+import { Router } from "express";
 import { dsa_tutor } from "../../constants/constants.js";
 import dotenv from "dotenv";
 
 dotenv.config();
 
-const tutorRoutes = express();
+const tutorRoutes = Router();
 const conversationHistory = {};
 
 const key = process.env.API_GEMINI_AI;

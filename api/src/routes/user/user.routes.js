@@ -1,9 +1,9 @@
-import express from "express";
+import { Router } from "express";
 import { jwtDecode } from "jwt-decode";
 import jwt from "jsonwebtoken";
-// import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 
-const userRoutes = express();
+const userRoutes = Router();
 const prisma = new PrismaClient();
 
 userRoutes.post("/signin", async (req, res) => {
@@ -12,30 +12,30 @@ userRoutes.post("/signin", async (req, res) => {
         const decodedData = jwtDecode(token.credential);
         const { email , name } = decodedData;
 
-        // let user = await prisma.user.findUnique({
-        //     where: { email }
-        // });
-        // if(!user) {
-        //     user = await prisma.user.create({
-        //         data : {
-        //             email , 
-        //             name
-        //         }
-        //     })
-        // }
-        // const curr_token = jwt.sign(
-        //     { 
-        //         id : user.id
-        //     }, 
-        //     process.env.JWT_SECRET,
-        //     {
-        //         expiresIn : '12h'
-        //     }
-        // );
+        let user = await prisma.user.findUnique({
+            where: { email }
+        });
+        if(!user) {
+            user = await prisma.user.create({
+                data : {
+                    email , 
+                    name
+                }
+            })
+        }
+        const curr_token = jwt.sign(
+            { 
+                id : user.id
+            }, 
+            process.env.JWT_SECRET,
+            {
+                expiresIn : '12h'
+            }
+        );
 
         res.status(200).json({
             success : true,
-            // token : curr_token
+            token : curr_token
         });
 
     } catch (error) {

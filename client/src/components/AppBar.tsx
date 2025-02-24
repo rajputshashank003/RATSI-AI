@@ -8,7 +8,7 @@ const AppBar = () => {
 
     return (
         <div className='w-[90%] z-[999999] rounded-2xl overflow-hidden p-2 fixed top-[4%] left-1/2 -translate-x-1/2 z-[99] h-[4rem] sm:h-[5rem] backdrop-blur-[8px] '>
-            <div className="absolute top-1/2 -translate-y-1/2 left-1">
+            <div className="absolute top-1/2 hover:opacity-[0.8] duration-200 -translate-y-1/2 left-1">
                 <AppBarLogo/>
             </div>
             <div onClick={() => navigate("/tutors") } className="absolute z-[99999] max-sm:hidden right-40 top-1/2 -translate-y-1/2 hover:opacity-[0.7] duration-200  cursor-pointer duration-200 text-[1.5rem] sm:text-[2.5rem] font-bold bg-gradient-to-t from-green-800 via-green-300 to-green-100 bg-clip-text text-transparent font-sans">

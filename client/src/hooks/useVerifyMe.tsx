@@ -7,12 +7,14 @@ interface AuthContextType {
     isAuthenticated: boolean;
     logout: () => void;
     verifyUser: () => Promise<void>;
+    checkState : () => void;
 }
 
 const AuthContext = createContext<AuthContextType>({
     isAuthenticated: false,
     logout: () => {},
     verifyUser: async () => {},
+    checkState : () => {}
 });
 
 export const AuthProvider = ({ children } : any) => {
@@ -24,6 +26,13 @@ export const AuthProvider = ({ children } : any) => {
         setIsAuthenticated(false);
         console.log("logged out");
         navigate("/signin");
+    }
+
+    const checkState = () => {
+        const token = localStorage.getItem("token");
+        if (token) {
+            verifyUser();
+        }
     }
 
     const verifyUser = async () => {
@@ -51,7 +60,7 @@ export const AuthProvider = ({ children } : any) => {
 
     return (
         <AuthContext.Provider value={{
-            isAuthenticated , logout, verifyUser
+            isAuthenticated , logout, verifyUser , checkState
         }}>
             {children}
         </AuthContext.Provider>

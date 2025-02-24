@@ -3,7 +3,7 @@ import { topics } from './Topics'
 import Chat from '../pages/Chat'
 import AllTutors from '../pages/AllTutors'
 import LandingPage from '../pages/LandingPage'
-import GoogleSignIn from './GoogleSignIn'
+import GoogleSignIn from '../pages/GoogleSignIn'
 
 const AppRoutes = () => {
   return (

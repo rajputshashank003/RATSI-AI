@@ -5,14 +5,16 @@ import { ScrollTrigger } from "gsap/all";
 import Page1 from "../components/LandingPage/Page1";
 import Page2 from "../components/LandingPage/Page2";
 import Page3 from "../components/LandingPage/Page3";
+import { useVerifyMe } from "../hooks/useVerifyMe";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const LandingPage = () => {
+  const { checkState } = useVerifyMe();
 
   useEffect(() => {
     const locomotiveScroll = new LocomotiveScroll();
-
+    checkState();
     return () => {
       locomotiveScroll.destroy();
     }

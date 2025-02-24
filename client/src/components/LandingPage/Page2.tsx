@@ -1,5 +1,5 @@
 import LandingVideoAnimation from '../LandingVideoAnimation.jsx/LandingVideoAnimation'
-import UnderlineSvg from '../UnderLineSvg'
+import UnderlineSvg from '../UnderlineSvg'
 
 const Page2 = () => {
   return (

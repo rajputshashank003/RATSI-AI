@@ -4,13 +4,14 @@ import { useState } from "react"
 interface InputPromptProps {
     handleSendMessage: (message: string) => void;
     loading: boolean;
+    firstCall? : boolean;
 }
   
-  const InputPrompt: React.FC<InputPromptProps> = ({ handleSendMessage, loading }) => {
+  const InputPrompt: React.FC<InputPromptProps> = ({ handleSendMessage, loading , firstCall}) => {
     const [text, setText] = useState("");
   
     const handleClick = () => {
-      if (text.trim()) {
+      if (text.trim() || firstCall) {
         handleSendMessage(text);
         setText("");
       }

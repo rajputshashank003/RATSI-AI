@@ -11,7 +11,7 @@ const Page1 = () => {
   return (
     <div className="h-fit relative">
         <PencilStrokeSvg/>
-        <div onClick={() => navigate("/tutors")}  className="absolute mt-10 duration-200 top-[5%] sm:top-[8%] w-full flex flex-col justify-center items-center sm:left-1/2 sm:-translate-x-1/2 text-[1rem] sm:text-[1.5rem] font-bold bg-gradient-to-t from-green-800 via-green-300 to-green-100 bg-clip-text text-transparent font-sans">
+        <div onClick={() => navigate("/products")}  className="absolute mt-10 duration-200 top-[5%] sm:top-[8%] w-full flex flex-col justify-center items-center sm:left-1/2 sm:-translate-x-1/2 text-[1rem] sm:text-[1.5rem] font-bold bg-gradient-to-t from-green-800 via-green-300 to-green-100 bg-clip-text text-transparent font-sans">
           <div className="absolute cursor-pointer -top-10 hover:underline duration-200 text-xl text-white">
             Learn now!
           </div>

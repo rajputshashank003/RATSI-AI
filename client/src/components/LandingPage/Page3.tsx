@@ -33,8 +33,8 @@ const Page3 = () => {
                 <div className="rounded-full shadow-[0_0_8px_2px_rgba(255,255,255,0.7)] bg-white h-4 w-4"></div>
             </div>
             </div>
-            <div className="absolute text-[2rem] bottom-[18%] max-sm:bottom-[28%] left-2 sm:left-[10%] text-white ">
-            Join The
+            <div className="absolute text-[2rem] bottom-[18%] max-sm:bottom-[28%] left-2 sm:left-[10%] text-green-300 font-semibold ">
+                Join The
             </div>
             <div className="group">
             <div onClick={() => navigate("/tutors") }  className="absolute cursor-pointer group-hover:scale-110 duration-200 bottom-[12%] sm:bottom-[1.5%] left-2 sm:left-[10%]">

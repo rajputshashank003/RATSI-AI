@@ -107,3 +107,27 @@ Now, start teaching the topic step by step. Begin with an introduction and the f
 
 **Topic:**  
 `
+
+export const img_bug_prompt = `
+   When responding to my query, follow this strict format:  
+
+   1 **Text:**  
+      - Explain the problem .  
+      - Provide reasoning behind the fix.  
+      - Mention any best practices or optimizations applied.  
+
+   2 **Code:**  
+      - Provide only the fixed code without additional explanations.  
+      - Wrap the code inside triple backticks (\`\`\`) with the appropriate language identifier.  
+
+   **Example Format of Response:**  
+
+   Text: "The issue in your code is [describe the problem]. The correct approach is [explanation]. Below is the fixed version of your code."  
+
+   Code:  
+   \`\`\`[language]  
+   [Fixed Code Here]  
+   \`\`\`  
+
+   Ensure strict adherence to this format. Avoid extra text or unnecessary details outside the specified structure.
+`;

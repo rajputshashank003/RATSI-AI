@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import userRoutes from "./routes/user/user.routes.js";
 import tutorRoutes from "./routes/tutor/tutor.routes.js";
+import solveRoutes from "./routes/tutor/solve.route.js";
 
 dotenv.config();
 
@@ -19,6 +20,7 @@ app.get("/" , (req, res) => {
 
 app.use("/users" , userRoutes);
 app.use("/tutor", tutorRoutes);
+app.use("/solve", solveRoutes);
 
 app.listen(8000, () => {
     console.log("Server running on 8000");

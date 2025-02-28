@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import AppBarLogo from './AppBarLogo';
 import { useVerifyMe } from '../hooks/useVerifyMe';
+import Ratsi from './Ratsi';
 
 const AppBar = () => {
     const navigate = useNavigate();
@@ -11,8 +12,8 @@ const AppBar = () => {
             <div className="absolute top-1/2 hover:opacity-[0.8] duration-200 -translate-y-1/2 left-1">
                 <AppBarLogo/>
             </div>
-            <div onClick={() => navigate("/tutors") } className="absolute z-[99999] max-sm:hidden right-40 top-1/2 -translate-y-1/2 hover:opacity-[0.7] duration-200  cursor-pointer duration-200 text-[1.5rem] sm:text-[2.5rem] font-bold bg-gradient-to-t from-green-800 via-green-300 to-green-100 bg-clip-text text-transparent font-sans">
-                RATSI
+            <div onClick={() => navigate("/products")} className='absolute z-[99999] max-sm:hidden right-40 top-1/2 -translate-y-1/2'>
+                <Ratsi/>
             </div>
             {
                 isAuthenticated ?

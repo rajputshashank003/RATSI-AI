@@ -7,7 +7,7 @@ import AppBar from "./components/AppBar";
 const App: React.FC = () => {
     return (
       <div className="relative bg-zinc-950 h-fit w-screen">
-        <div className="footer p-4">
+        <div className="footer absolute p-4">
           <AppBar/>
         </div>
         <AppRoutes/>

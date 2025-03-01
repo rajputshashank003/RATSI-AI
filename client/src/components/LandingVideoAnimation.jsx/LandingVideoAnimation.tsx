@@ -95,7 +95,7 @@ const LandingVideoAnimation = () => {
     
     return (
         <div className='parent_canv h-full relative flex justify-center items-center w-full'>
-            <canvas id='video_frame' ref={canvasRef} className={`z-[999] h-full`}></canvas>
+            <canvas id='video_frame' ref={canvasRef} className={`z-[999] canvas_landing_robo pointer-events-none h-full`}></canvas>
         </div>
     );
 };

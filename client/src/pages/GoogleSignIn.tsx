@@ -1,6 +1,6 @@
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import axios from "axios";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const GoogleSignIn = () => {
@@ -14,6 +14,7 @@ const GoogleSignIn = () => {
         try {
             const res : any = await axios.post("/users/signin", {token : credentialResponse}) 
             localStorage.setItem("token" , res.data.token);
+            localStorage.setItem("email" , res.data.email);
             navigate("/");
         } catch (err : any) {
             console.log("err", err);
@@ -23,6 +24,12 @@ const GoogleSignIn = () => {
     const handleError = () => {
         setWaiting(false);
     }
+
+    useEffect(() => {
+        if(localStorage.getItem("token")) {
+            navigate("/");
+        }
+    } , []);
 
     return (
         <div className='h-screen w-screen flex justify-center items-center'>

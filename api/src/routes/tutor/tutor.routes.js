@@ -1,14 +1,12 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { Router } from "express";
-import { dsa_tutor } from "../../constants/constants.js";
+import { dsa_tutor, key } from "../../constants/constants.js";
 import dotenv from "dotenv";
 
 dotenv.config();
 
 const tutorRoutes = Router();
 const conversationHistory = {};
-
-const key = process.env.API_GEMINI_AI;
 
 if (!key) {
     console.error("API_GEMINI_AI environment variable is not set.");
@@ -50,7 +48,7 @@ tutorRoutes.post("/dsa_tutor", async (req, res) => {
         .map((msg) => `${msg.role === "user" ? "User" : "Tutor"}: ${msg.content}`)
         .join("\n");
 
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
     try {
         const result = await model.generateContentStream(context + "\nTutor: ");

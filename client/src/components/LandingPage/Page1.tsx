@@ -73,7 +73,7 @@ const Page1 = () => {
             AI
           </div>
         </div>
-        <div  className="robo_3d_canv z-[9] pointer-events-none relative h-[250vh] par w-full ">
+        <div  className="robo_3d_canv z-[99999] pointer-events-none relative h-[250vh] par w-full ">
           <Canvas camera={{ position: [-4 , 1 ,63], fov: 30 }}
             gl={{ antialias: true, pixelRatio: Math.min(window.devicePixelRatio, 2) }}
             style={{ pointerEvents: 'none' }}

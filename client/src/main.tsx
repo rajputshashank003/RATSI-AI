@@ -5,6 +5,7 @@ import App from './App.tsx'
 import { BrowserRouter } from 'react-router-dom'
 import "./axiosConfig.js";
 import { AuthProvider } from "./hooks/useVerifyMe.tsx";
+import "./utils/Interceptors/AuthInterceptor.tsx";
 
 createRoot(document.getElementById('root')!).render(
     <BrowserRouter>

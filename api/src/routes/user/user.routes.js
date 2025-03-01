@@ -2,6 +2,7 @@ import { Router } from "express";
 import { jwtDecode } from "jwt-decode";
 import jwt from "jsonwebtoken";
 import { PrismaClient } from "@prisma/client";
+import { JWT_SECRET } from "../../constants/constants.js";
 
 const userRoutes = Router();
 const prisma = new PrismaClient();
@@ -27,7 +28,7 @@ userRoutes.post("/signin", async (req, res) => {
             { 
                 id : user.id
             }, 
-            process.env.JWT_SECRET,
+            JWT_SECRET,
             {
                 expiresIn : '12h'
             }
@@ -35,7 +36,8 @@ userRoutes.post("/signin", async (req, res) => {
 
         res.status(200).json({
             success : true,
-            token : curr_token
+            token : curr_token , 
+            email : user.email
         });
 
     } catch (error) {
@@ -50,7 +52,7 @@ userRoutes.post("/verify", (req, res) => {
         if (!token) {
             return res.status(400).json({ success: false, error: "Token is required" });
         }
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const decoded = jwt.verify(token, JWT_SECRET);
         res.status(200).json({
             success: true,
             user: decoded

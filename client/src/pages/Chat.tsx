@@ -1,6 +1,5 @@
 import { useEffect, useState, useRef } from "react";
 import ReactMarkdown from "react-markdown";
-import { v4 as uuidv4 } from 'uuid';
 import TopicTitle from "../components/TopicTitle";
 import InputPrompt from "../components/InputPrompt";
 import { backend } from "../utils/backend";
@@ -22,7 +21,7 @@ const Chat: React.FC<ChatProps> = ({ topic }) => {
     const [messages, setMessages] = useState<Message[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
-    const [ id ] = useState<string>(uuidv4());
+    const [ id ] = useState<string>(localStorage.getItem("email") ?? "");
 
     const chatEndRef = useRef<HTMLDivElement>(null);
 
@@ -43,14 +42,19 @@ const Chat: React.FC<ChatProps> = ({ topic }) => {
 
     useEffect(() => {
         return () => {
-          fetch( backend + "/tutor/removeme?userId=" + id)
+            fetch( backend + "/tutor/removeme?userId=" + id , {
+                method : "GET",
+                headers: { 
+                "access_token" : localStorage.getItem("token") ?? "" 
+                },
+            })
             .then((response) => {
-              if (!response.ok) {
-                console.error("Failed to call removeme API");
-              }
+                if (!response.ok) {
+                    console.error("Failed to call removeme API");
+                }
             })
             .catch((error) => {
-              console.error("Error calling removeme API:", error);
+                console.error("Error calling removeme API:", error);
             });
         };
     }, []);

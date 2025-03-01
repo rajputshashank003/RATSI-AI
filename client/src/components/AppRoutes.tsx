@@ -4,8 +4,9 @@ import Chat from '../pages/Chat'
 import AllTutors from '../pages/AllTutors'
 import LandingPage from '../pages/LandingPage'
 import GoogleSignIn from '../pages/GoogleSignIn'
-import BugFix from '../pages/BugFix'
 import AllProducts from '../pages/AllProducts'
+import ImageResponse from '../pages/ImageResponse'
+import AudioResponse from '../pages/AudioResponse'
 
 const AppRoutes = () => {
   return (
@@ -18,7 +19,8 @@ const AppRoutes = () => {
               ))
             }
         <Route path="/signin" element={<GoogleSignIn/>}/>
-        <Route path="/bugs/fix" element={<BugFix/>}/>
+        <Route path="/bugs/fix" element={<ImageResponse/>}/>
+        <Route path="/talk_with_ratsi" element={<AudioResponse/>}/>
         <Route path="*" element={<LandingPage/>}/>
     </Routes>
   )

@@ -1,4 +1,3 @@
-import { UUIDTypes } from "uuid";
 import { backend } from "./backend";
 
 export const sendMessage = async (
@@ -7,7 +6,7 @@ export const sendMessage = async (
         setLoading : any , 
         setError : any, 
         setMessages : any,
-        id : UUIDTypes
+        id : string
     ) => {
     if (!text.trim() || loading) return;
 
@@ -19,7 +18,10 @@ export const sendMessage = async (
     try {
         const response = await fetch(backend + "/tutor/dsa_tutor", {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            headers: { 
+                "Content-Type": "application/json" , 
+                "access_token" : localStorage.getItem("token") ?? "" 
+            },
             body: JSON.stringify({ prompt: text, userId: id }),
         });
 

@@ -1,9 +1,11 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { Router } from "express";
-import { img_bug_prompt } from "../../constants/constants.js";
+import { img_bug_prompt, key } from "../../constants/constants.js";
 import dotenv from "dotenv";
 import multer from "multer";
 import { storage } from "../../config/cloudinary.config.js";
+import authMiddleware from "../../middleware/auth.middleware.js";
+import audioRoutes from "./audio.routes.js";
 
 const upload = multer( { storage } );
 dotenv.config();
@@ -11,7 +13,6 @@ dotenv.config();
 const solveRoutes = Router();
 const conversationHistory = {};
 
-const key = process.env.API_GEMINI_AI;
 
 if (!key) {
     console.error("API_GEMINI_AI environment variable is not set.");
@@ -24,6 +25,7 @@ try {
     console.log("error", err.message);
 }
 
+solveRoutes.use("/audio" , audioRoutes);
 
 solveRoutes.post("/img/bug" , upload.single("file"), async (req, res) => {
   try {
@@ -110,7 +112,9 @@ solveRoutes.get("/removeme", (req, res) => {
 });
 
 solveRoutes.get("/hello", (req, res) => {
-  res.send(conversationHistory);
+  res.json({
+    conversationHistory
+  })
 })
 
 export default solveRoutes;

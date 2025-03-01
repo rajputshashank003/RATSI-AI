@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { backend } from "../utils/backend";
-import { v4 as uuidv4 } from 'uuid';
 import InputPrompt from "../components/InputPrompt";
 import ReactMarkdown from "react-markdown";
 import { useVerifyMe } from "../hooks/useVerifyMe";
@@ -16,12 +15,12 @@ interface Message {
   };
 }
 
-const BugFix = () => {
+const ImageResponse = () => {
   
   const [messages , setMessages] = useState<Message[]>([]);
   const [coinImagePreviewURL , setPreviewURL] = useState();
   const [coinImage, setCoinImage] = useState(null);
-  const [ id ] = useState<string>(uuidv4());
+  const [ id ] = useState<string>(localStorage.getItem("email") ?? "");
   const [loading , setLoading] = useState<boolean>(false);
   const [firstCall , setFirstCall] = useState<boolean>(true);
 
@@ -52,7 +51,12 @@ const BugFix = () => {
 
     return () => {
       console.log("unmount");
-      fetch( backend + "/solve/removeme?userId=" + id)
+      fetch( backend + "/solve/removeme?userId=" + id , {
+        method : "GET",
+        headers: { 
+          "access_token" : localStorage.getItem("token") ?? "" 
+        },
+      })
         .then((response) => {
           if (!response.ok) {
             console.error("Failed to call removeme API");
@@ -191,4 +195,4 @@ const BugFix = () => {
   );
 };
 
-export default BugFix;
+export default ImageResponse;

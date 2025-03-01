@@ -45,7 +45,7 @@ const PencilStrokeSvg = () => {
                 >
                 </path>
             </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 145 83" className="intro__sentence absolute left-[10rem] bottom-[38rem] z-[999999] sm:top-[16rem] text-white h-36 w-36" data-v-90dcedb3="">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 145 83" className="intro__sentence absolute left-[10rem] bottom-[38rem] z-[99] sm:top-[16rem] text-white h-36 w-36" data-v-90dcedb3="">
                 <path stroke="currentColor" strokeLinecap="square" strokeWidth=".5" d="M65.029 21.792c-.691 2.996-1.57 5.938-2.395 8.898-.2.722-.554 1.645-.554 2.445M63.668 28.145c1.554-.367 2.884-.54 4.083-1.588M68.659 21.566c-.292 3.675-.401 7.23-.227 10.889M73.65 23.834c-.963 1.878-1.566 3.691-1.311 5.823.112.942 1.49 3.917 2.344 1.689.656-1.713.639-5.288-.82-6.617-1.393-1.27-2.316 1.382-2.709 2.281M79.094 22.7c.076 2.041.273 4.08.58 6.1.14.918.135 1.323.781 1.84" style={{ strokeDashoffset: 0 + "px" , strokeDasharray: "none" }}></path>
                 <path stroke="currentColor" stroke-linecap="square" stroke-width=".5" d="M77.28 21.339c2.443-.162 5.858-.776 7.965.958.897.738-.818 1.116-1.223 1.21-1.6.369-3.236.567-4.827.982-1.355.354-.675.4.126.48M89.303 22.927c-.378 2.098-1.399 7.525 2.067 7.663 3.287.13 6.79-1.2 9.957-1.992" style={{ strokeDashoffset: 0 + "px" , strokeDasharray: "none" }}></path>
                 <path stroke="currentColor" stroke-linecap="square" stroke-width=".5" d="M88.395 27.237c5.39-1.216 10.8-2.34 16.108-3.857M88.622 22.7c7.321-1.603 14.658-3.068 22.006-4.537M4.684 53.78c.111 1.724.168 3.442.24 5.167.02.471-.059 1.064.44.731" style={{ strokeDashoffset: 0 + "px" , strokeDasharray: "none" }}></path>

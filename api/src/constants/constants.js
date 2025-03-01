@@ -131,3 +131,10 @@ export const img_bug_prompt = `
 
    Ensure strict adherence to this format. Avoid extra text or unnecessary details outside the specified structure.
 `;
+
+export const key = process.env.API_GEMINI_AI;
+export const ELEVENLABS_API_KEY = process.env.ELEVENLABS_API_KEY;
+export const JWT_SECRET = process.env.JWT_SECRET;
+export const cloud_name = process.env.CLOUD_NAME;
+export const api_key = process.env.CLOUD_API_KEY;
+export const api_secret = process.env.CLOUD_API_SECRET;

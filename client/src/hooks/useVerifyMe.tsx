@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { backend } from "../utils/backend";
@@ -8,18 +8,32 @@ interface AuthContextType {
     logout: () => void;
     verifyUser: () => Promise<void>;
     checkState : () => void;
+    token : string ;
 }
 
 const AuthContext = createContext<AuthContextType>({
     isAuthenticated: false,
     logout: () => {},
     verifyUser: async () => {},
-    checkState : () => {}
+    checkState : () => {}, 
+    token : "",
 });
 
 export const AuthProvider = ({ children } : any) => {
     const [isAuthenticated, setIsAuthenticated] = useState<boolean>(localStorage.getItem("token") ? true : false);
     const navigate = useNavigate();
+    const [ token , setToken ] = useState<string>("");
+
+    const clearLocalStorage = () => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("email");
+        setIsAuthenticated(false);
+        navigate("/signin");
+    }
+
+    useEffect(() => {
+        setToken(localStorage.getItem("token") ?? "");
+    }, [isAuthenticated] );
 
     const logout = () => {
         localStorage.removeItem("token");
@@ -47,20 +61,16 @@ export const AuthProvider = ({ children } : any) => {
             if (response.data.success) {
                 setIsAuthenticated(true);
             } else {
-                localStorage.removeItem("token");
-                setIsAuthenticated(false);
-                navigate("/signin"); 
+                clearLocalStorage();
             }
         } catch (error) {
-            localStorage.removeItem("token");
-            setIsAuthenticated(false);
-            navigate("/signin");
+            clearLocalStorage();
         }
     };
 
     return (
         <AuthContext.Provider value={{
-            isAuthenticated , logout, verifyUser , checkState
+            isAuthenticated , logout, verifyUser , checkState , token
         }}>
             {children}
         </AuthContext.Provider>

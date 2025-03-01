@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
         {
-            "src": "/api/src/server.js",
+            "src": "api/src/server.js",
             "use": "@vercel/node"
         }
     ],
@@ -11,5 +11,14 @@
             "src": "/(.*)",
             "dest": "/api/src/server.js"
         }
-    ]
+    ],
+    "build": {
+        "env": {
+            "DATABASE_URL": "@database_url"
+        },
+        "commands": [
+            "cd api && npm install",
+            "cd api && npx prisma generate"
+        ]
+    }
 }

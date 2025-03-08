@@ -7,6 +7,7 @@ import * as THREE from 'three'
 import React, { useEffect, useRef } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 import { GLTF } from 'three-stdlib'
+import VideoPlane from './EyeTrackMesh'
 
 type ActionName = 'animation_0'
 
@@ -71,6 +72,7 @@ export function Robo_3d(props: any) {
                   <group name="mixamorigNeck" position={[0, 33.209, 0]} rotation={[-0.271, -0.001, -0.007]}>
                     <group ref={head} name="mixamorigHead" position={[0, 85.057, -3.146]} rotation={[0.235, 0.046, -0.019]}>
                       {/* <mesh name="FACE" geometry={nodes.FACE.geometry} material={nodes.FACE.material} position={[-19.12, 118.687, 142.834]} rotation={[0.013, -0.082, 0.015]} scale={75} /> */}
+                      <VideoPlane/>
                       <mesh name="SCHEME" geometry={nodes.SCHEME.geometry} material={nodes.SCHEME.material} position={[-7.836, 189.076, -11.166]} rotation={[0.013, -0.082, -3.126]} scale={129.61} />
                       <mesh name="C" geometry={nodes.C.geometry} material={nodes.C.material} position={[-16.585, 120.243, 121.036]} rotation={[0.013, -0.082, 0.015]} scale={135.705} />
                       <mesh name="pipes_Torus1" geometry={nodes.pipes_Torus1.geometry} material={nodes.pipes_Torus1.material} position={[138.502, 70.365, 5.658]} rotation={[0.013, -0.082, 0.015]} scale={27.197} />

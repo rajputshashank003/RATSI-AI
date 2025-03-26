@@ -91,8 +91,8 @@ const Page3 = () => {
                 <div className="group ai_video_par">
                     <div className="absolute max-sm:hidden ai_video pointer-events-none opacity-0 bottom-[120vh] z-[9] right-4">
                         <video className='sm:h-[80vh] md:h-[100vh]' autoPlay loop>
-                            <source src="https://chaingpt-web.s3.us-east-2.amazonaws.com/assets/video/Labs/LABS_hero_SAFARI_HEVC.mp4" type="video/mp4; codecs=hvc1"/>
                             <source src="/LABS_hero_CHROME_VP9.webm" type="video/webm"/>
+                            <source src="/LABS_hero_SAFARI_HEVC.mp4" type="video/mp4; codecs=hvc1"/>
                         </video>
                     </div>
                     <div onClick={() => navigate("/tutors") } className="absolute z-[9999] cursor-pointer group-hover:scale-110 duration-200 right-0 md:left-[22%] sm:left-[28%] left-[5%] -bottom-[2%] sm:bottom-[1%]">

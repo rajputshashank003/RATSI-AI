@@ -50,7 +50,6 @@ const ImageResponse = () => {
     verifyUser();
 
     return () => {
-      console.log("unmount");
       fetch( backend + "/solve/removeme?userId=" + id , {
         method : "GET",
         headers: { 
@@ -94,7 +93,6 @@ const ImageResponse = () => {
     } else {
       try {
         const { data } = await axios.post("/solve/img/query", { prompt , userId : id });
-        console.log(data);
         if(!data.success){
           throw new Error(data.message);
         }
@@ -111,7 +109,6 @@ const ImageResponse = () => {
   const handleSubmitFirst = async (prompt : string) => {
     const formData = new FormData();
     if(!coinImage) {
-      console.log("bug image not found!");  
       return ;
     }
     formData.append("file", coinImage);
@@ -119,7 +116,6 @@ const ImageResponse = () => {
     formData.append("description", prompt);
 
     try {
-      console.log("calling");
       const { data } = await axios.post("/solve/img/bug", formData , {
         headers: {
             "Content-Type": "multipart/form-data",
@@ -141,7 +137,7 @@ const ImageResponse = () => {
   }
 
   return (
-    <div className="p-4 min-h-screen  relative mt-14 ">
+    <div className="p-4 min-h-screen relative pt-36">
       { 
           coinImage ?
           <img 

@@ -1,6 +1,9 @@
 import { useThree } from "@react-three/fiber";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 import { useEffect } from "react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const CameraController = () => {
     const { camera } = useThree(); 

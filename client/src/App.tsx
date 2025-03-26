@@ -11,7 +11,7 @@ const App: React.FC = () => {
           <AppBar/>
         </div>
         <AppRoutes/>
-        <div className="footer p-4">
+        <div className="footer z-[99999] relative p-4">
           <Footer/>
         </div>
       </div>

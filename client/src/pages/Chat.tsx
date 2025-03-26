@@ -60,7 +60,7 @@ const Chat: React.FC<ChatProps> = ({ topic }) => {
     }, []);
 
     return (
-        <div className="flex flex-col h-screen p-4 bg-gray-900 text-white no-scroll mt-10">
+        <div className="flex flex-col h-screen p-4 bg-gray-900 text-white no-scroll pt-30">
             <TopicTitle topic={messages[0]?.content ?? "Unknown topic "} />
             <div className="flex-1 overflow-y-auto no-scrollbar mb-4">
                 {messages.map((msg, index) => (

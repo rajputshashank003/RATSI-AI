@@ -6,7 +6,7 @@ import ProductCard from "../components/ProductCard";
 const AllProducts = () => {
     return (
         <div className="relative">
-            <div className="min-h-screen realtive flex gap-8 flex-col sm:grid grid-cols-2 grid-rows-2 w-screen p-4 pt-24" >
+            <div className="min-h-screen realtive flex gap-8 flex-col sm:grid grid-cols-2 grid-rows-2 w-screen p-4 pt-36" >
                 <div className="col-span-1 row-start-1 row-end-2  row-span-1">
                     <ProductCard link={"/bugs/fix"}>
                         Fix your bugs with 

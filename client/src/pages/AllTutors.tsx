@@ -12,7 +12,7 @@ const AllTutors = () => {
   
   return (
     <div className="relative w-screen ">
-      <div className="w-full mt-[3rem] flex justify-center items-center text-4xl p-6 font-bold text-slate-300">
+      <div className="w-full pt-[6rem] flex justify-center items-center text-4xl p-6 font-bold text-slate-300">
         All DSA Tutors
       </div>
       <div className='min-h-screen w-full flex justify-center items-center gap-8 p-2 flex-wrap bg-zinc-950'>

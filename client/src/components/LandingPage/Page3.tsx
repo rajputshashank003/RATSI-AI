@@ -18,7 +18,7 @@ const Page3 = () => {
                 end: "top 10%",
                 scrub: 2,
             },
-            opacity : 100,
+            opacity : 1,
             y : 780,
         })
 
@@ -90,7 +90,7 @@ const Page3 = () => {
                 </div>
                 <div className="group ai_video_par">
                     <div className="absolute max-sm:hidden ai_video pointer-events-none opacity-0 bottom-[120vh] z-[9] right-4">
-                        <video className='sm:h-[80vh] md:h-[100vh]' autoPlay loop>
+                        <video className='sm:h-[80vh] md:h-[100vh]' autoPlay loop playsInline muted >
                             <source src="/LABS_hero_CHROME_VP9.webm" type="video/webm"/>
                             <source src="/LABS_hero_SAFARI_HEVC.mp4" type="video/mp4; codecs=hvc1"/>
                         </video>

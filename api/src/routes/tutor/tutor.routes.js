@@ -12,10 +12,10 @@ if (!key) {
     console.error("API_GEMINI_AI environment variable is not set.");
 }
 
-let genAI ;
+let genAI;
 try {
     genAI = new GoogleGenerativeAI(key);
-} catch (err){
+} catch (err) {
     console.log("error", err.message);
 }
 
@@ -33,7 +33,7 @@ tutorRoutes.post("/dsa_tutor", async (req, res) => {
     res.setHeader("Connection", "keep-alive");
 
     const { prompt, userId } = req.body;
-    console.log(prompt , userId);
+
     if (!prompt || !userId) {
         return res.status(400).json({ error: "Prompt and userId are required" });
     }
@@ -42,13 +42,15 @@ tutorRoutes.post("/dsa_tutor", async (req, res) => {
         conversationHistory[userId] = [{ role : "user" , content : dsa_tutor + " "}];
     }
 
-    conversationHistory[userId].push({ role: "user", content:  prompt });
+    conversationHistory[userId].push({ role: "user", content: prompt });
 
     const context = conversationHistory[userId]
         .map((msg) => `${msg.role === "user" ? "User" : "Tutor"}: ${msg.content}`)
         .join("\n");
 
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({
+        model: "gemini-2.5-flash",
+    });
 
     try {
         const result = await model.generateContentStream(context + "\nTutor: ");
@@ -64,7 +66,10 @@ tutorRoutes.post("/dsa_tutor", async (req, res) => {
         res.end();
     } catch (error) {
         console.error("Error:", error);
-        res.status(500).json({ error: "Something went wrong!" });
+        try {
+            res.write(`\n[ERROR]: Something went wrong on server\n`);
+        } catch { }
+        res.end();
     }
 });
 
